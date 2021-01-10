@@ -46,10 +46,22 @@ namespace TestConsole
                             }
                         case 3:
                             {
+                                CTR.
                                 break;
                             }
-                        case 4:
+                        case 6:
                             {
+                                CTR.Claer();
+                                break;
+                            }
+                        case 7:
+                            {
+                                CTR.SortTrNumber();
+                                break;
+                            }
+                        case 8:
+                            {
+                                CTR.SortTime();
                                 break;
                             }
                         default:
@@ -67,6 +79,8 @@ namespace TestConsole
             Console.WriteLine(" 4 - сохранить как коллекцию ");
             Console.WriteLine(" 5 - загрузить коллекцию ");
             Console.WriteLine(" 6 - очистить коллекцию ");
+            Console.WriteLine(" 7 - отсортировать по номеру поезда коллекцию ");
+            Console.WriteLine(" 8 - отсортировать по времени коллекцию ");
             Console.WriteLine(" 10 - вывход");
 
         }
@@ -118,6 +132,7 @@ namespace TestConsole
 
             //----------------------------------------------------------------------------
 
+            string[] Stime={"","" };
             do
             {
                 flag = false;
@@ -130,7 +145,7 @@ namespace TestConsole
                     flag = true;
                     continue;
                 }
-                string[] Stime = buf.Split(new char[] { ':', ' ' }, StringSplitOptions.RemoveEmptyEntries); // StringSplitOptions.RemoveEmptyEntries говорит, что надо удалить все пустые подстроки
+                Stime = buf.Split(new char[] { ':', ' ' }, StringSplitOptions.RemoveEmptyEntries); // StringSplitOptions.RemoveEmptyEntries говорит, что надо удалить все пустые подстроки
                 if (!CheckNumer(Stime[0]))
                 {
                     Console.WriteLine("Ошибка ввода часа. Попробуйте ещё");
@@ -147,6 +162,10 @@ namespace TestConsole
                         flag = true;
                         continue;
                     }
+                }
+                if(Stime[0].Length==1) // если без нуля был ввод
+                {
+                    Stime[0] = "0" + Stime[0];
                 }
                 if (!CheckNumer(Stime[1]))
                 {
@@ -165,8 +184,13 @@ namespace TestConsole
                         continue;
                     }
                 }
+                if (Stime[1].Length == 1) // если без нуля был ввод
+                {
+                    Stime[1] = "0" + Stime[1];
+                }
             } while (flag);
-            StTm = buf;
+            //StTm = buf;
+            StTm = Stime[0]+ ":"+Stime[1];
 
             //----------------------------------------------------------------------------
 

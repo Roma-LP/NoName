@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.IO;
+using System.Text.Json;
+
 namespace TestConsole
 {
     class CollectionTR
@@ -24,7 +27,7 @@ namespace TestConsole
         public void Add(TRAIN org)
         {
             Collect.Add(org);
-            var sortedList = Collect.OrderBy(x => x).ToList();
+            Collect = Collect.OrderBy(x => x.Destination).ToList();
         }
         public void Add(TRAIN[] org)
         {
@@ -52,6 +55,25 @@ namespace TestConsole
                 Console.WriteLine(Collect[i - 1]);
             else
                 Console.WriteLine("Выход за пределы коллекции");
+        }
+
+        public void SortTrNumber()  // сортировка по номеру поезда  
+        {
+            Collect = Collect.OrderBy(x => x.TrNumber).ToList();
+        }
+
+        public void SortTime()  // сортировка по времени
+        {
+            Collect = Collect.OrderBy(x => x.StartTime).ToList();
+        }
+        
+        public void Save()  // сохранить
+        {
+            using (FileStream fs = new FileStream("user.json", FileMode.OpenOrCreate))
+            {
+                await JsonSerializer.SerializeAsync<TRAIN>(fs, Collect);
+                Console.WriteLine("Data has been saved to file");
+            }
         }
 
     }
