@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TestConsole
 {
-    class TRAIN
+    [Serializable]
+    public class TRAIN
     {
         public string Destination; // пункт назначения
         public int TrNumber;       // номер поезда

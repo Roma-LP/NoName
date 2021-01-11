@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<ArrayOfTRAIN xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />  <TRAIN>
+    <Destination>rty</Destination>
+    <TrNumber>34</TrNumber>
+    <StartTime>04:07</StartTime>
+  </TRAIN>
+  <TRAIN>
+    <Destination>vbgt</Destination>
+    <TrNumber>542</TrNumber>
+    <StartTime>02:28</StartTime>
+  </TRAIN>
+</ArrayOfTRAIN>

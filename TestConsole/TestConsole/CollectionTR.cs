@@ -5,12 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.IO;
-using System.Text.Json;
+//sing System.Text.Json;
+//using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace TestConsole
 {
+    [Serializable]
     class CollectionTR
     {
+
         List<TRAIN> Collect = new List<TRAIN>();
 
         public CollectionTR()
@@ -69,10 +73,25 @@ namespace TestConsole
         
         public void Save()  // сохранить
         {
-            using (FileStream fs = new FileStream("user.json", FileMode.OpenOrCreate))
+            // передаем в конструктор тип класса
+            XmlSerializer formatter = new XmlSerializer(typeof(List<TRAIN>));
+            // получаем поток, куда будем записывать сериализованный объект
+            using (FileStream fs = new FileStream("TrainCollection.xml", FileMode.OpenOrCreate))
             {
-                await JsonSerializer.SerializeAsync<TRAIN>(fs, Collect);
-                Console.WriteLine("Data has been saved to file");
+                formatter.Serialize(fs, Collect);
+                Console.WriteLine("Объект сериализован");
+            }
+        }
+
+        public void Load()  // загрузить
+        {
+            // десериализация
+            using (FileStream fs = new FileStream("TrainCollection.xml", FileMode.OpenOrCreate))
+            {
+                XmlSerializer formatter = new XmlSerializer(typeof(List<TRAIN>));
+                Collect = (List<TRAIN>)formatter.Deserialize(fs);
+
+                Console.WriteLine("Объект десериализован");
             }
         }
 

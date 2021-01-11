@@ -1,7 +1,7 @@
-D:\TaskC#\TestConsole\TestConsole\obj\Debug\TestConsole.csprojAssemblyReference.cache
 D:\TaskC#\TestConsole\TestConsole\obj\Debug\TestConsole.csproj.CoreCompileInputs.cache
 D:\TaskC#\TestConsole\TestConsole\bin\Debug\TestConsole.exe.config
 D:\TaskC#\TestConsole\TestConsole\bin\Debug\TestConsole.exe
 D:\TaskC#\TestConsole\TestConsole\bin\Debug\TestConsole.pdb
+D:\TaskC#\TestConsole\TestConsole\obj\Debug\TestConsole.csprojAssemblyReference.cache
 D:\TaskC#\TestConsole\TestConsole\obj\Debug\TestConsole.exe
 D:\TaskC#\TestConsole\TestConsole\obj\Debug\TestConsole.pdb

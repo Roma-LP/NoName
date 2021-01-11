@@ -46,7 +46,12 @@ namespace TestConsole
                             }
                         case 3:
                             {
-                                CTR.
+                                CTR.Save(); // TaskC#\TestConsole\TestConsole\bin\Debug
+                                break;
+                            }
+                        case 4:
+                            {
+                                CTR.Load(); // TaskC#\TestConsole\TestConsole\bin\Debug
                                 break;
                             }
                         case 6:
@@ -76,8 +81,7 @@ namespace TestConsole
             Console.WriteLine(" 1 - добавление элемента Train в коллекцию ");
             Console.WriteLine(" 2 - вывод коллекции ");
             Console.WriteLine(" 3 - сохранить коллекцию ");
-            Console.WriteLine(" 4 - сохранить как коллекцию ");
-            Console.WriteLine(" 5 - загрузить коллекцию ");
+            Console.WriteLine(" 4 - загрузить коллекцию ");
             Console.WriteLine(" 6 - очистить коллекцию ");
             Console.WriteLine(" 7 - отсортировать по номеру поезда коллекцию ");
             Console.WriteLine(" 8 - отсортировать по времени коллекцию ");
