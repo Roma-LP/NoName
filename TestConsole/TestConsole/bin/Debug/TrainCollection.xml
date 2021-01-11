@@ -1,12 +1,43 @@
 <?xml version="1.0"?>
-<ArrayOfTRAIN xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />  <TRAIN>
-    <Destination>rty</Destination>
-    <TrNumber>34</TrNumber>
-    <StartTime>04:07</StartTime>
+<ArrayOfTRAIN xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TRAIN>
+    <Destination>amk</Destination>
+    <TrNumber>381</TrNumber>
+    <StartTime>02:07</StartTime>
   </TRAIN>
   <TRAIN>
-    <Destination>vbgt</Destination>
-    <TrNumber>542</TrNumber>
-    <StartTime>02:28</StartTime>
+    <Destination>amk</Destination>
+    <TrNumber>346</TrNumber>
+    <StartTime>02:05</StartTime>
+  </TRAIN>
+  <TRAIN>
+    <Destination>ghy</Destination>
+    <TrNumber>397</TrNumber>
+    <StartTime>01:09</StartTime>
+  </TRAIN>
+  <TRAIN>
+    <Destination>gty</Destination>
+    <TrNumber>2345</TrNumber>
+    <StartTime>23:40</StartTime>
+  </TRAIN>
+  <TRAIN>
+    <Destination>qwe</Destination>
+    <TrNumber>345</TrNumber>
+    <StartTime>23:40</StartTime>
+  </TRAIN>
+  <TRAIN>
+    <Destination>rty</Destination>
+    <TrNumber>183</TrNumber>
+    <StartTime>15:38</StartTime>
+  </TRAIN>
+  <TRAIN>
+    <Destination>vbg</Destination>
+    <TrNumber>167</TrNumber>
+    <StartTime>12:04</StartTime>
+  </TRAIN>
+  <TRAIN>
+    <Destination>yhg</Destination>
+    <TrNumber>183</TrNumber>
+    <StartTime>21:27</StartTime>
   </TRAIN>
 </ArrayOfTRAIN>

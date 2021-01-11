@@ -8,11 +8,13 @@ namespace TestConsole
 {
     class Program
     {
-        
- 
+        static bool flag; // для ввода флаг
+        static string buf; // буфер для ввода
+
         static void Main(string[] args)
         {
-            string choice;
+            string choice;  // для выбора меню глобально
+
             CollectionTR CTR = new CollectionTR();
             do
             {
@@ -25,55 +27,71 @@ namespace TestConsole
                     Console.WriteLine("Ошибка ввода, попробуйте ещё");
                     System.Threading.Thread.Sleep(1000);
                     Console.Clear();
-                    choice = "0";
+                    choice = "999";
                     continue;
                 }
 
-                if (1 <= Convert.ToInt32(choice) && Convert.ToInt32(choice) < 10)
+                switch (Convert.ToInt32(choice))
                 {
-                    switch (Convert.ToInt32(choice))
-                    {
-                        case 1:
-                            {
-                                CTR.Add(OneMethod());
-                                break;
-                            }
-                        case 2:
-                            {
-                                CTR.PrintAll();
-                                Console.ReadKey();
-                                break;
-                            }
-                        case 3:
-                            {
-                                CTR.Save(); // TaskC#\TestConsole\TestConsole\bin\Debug
-                                break;
-                            }
-                        case 4:
-                            {
-                                CTR.Load(); // TaskC#\TestConsole\TestConsole\bin\Debug
-                                break;
-                            }
-                        case 6:
-                            {
-                                CTR.Claer();
-                                break;
-                            }
-                        case 7:
-                            {
-                                CTR.SortTrNumber();
-                                break;
-                            }
-                        case 8:
-                            {
-                                CTR.SortTime();
-                                break;
-                            }
-                        default:
+                    case 1:
+                        {
+                            CTR.Add(new TRAIN(WriteDest(), WriteTrainNumber(), WriteTime()));
                             break;
-                    }
+                        }
+                    case 2:
+                        {
+                            CTR.PrintAll();
+                            Console.ReadKey();
+                            break;
+                        }
+                    case 3:
+                        {
+                            CTR.Save(); // TaskC#\TestConsole\TestConsole\bin\Debug
+                            break;
+                        }
+                    case 4:
+                        {
+                            CTR.Load(); // TaskC#\TestConsole\TestConsole\bin\Debug
+                            break;
+                        }
+                    case 6:
+                        {
+                            CTR.Claer();
+                            break;
+                        }
+                    case 7:
+                        {
+                            CTR.SortTrNumber();
+                            break;
+                        }
+                    case 8:
+                        {
+                            CTR.SortTime();
+                            break;
+                        }
+                    case 9:
+                        {
+                            CTR.FindDestination();
+                            Console.ReadKey();
+                            break;
+                        }
+                    case 10:
+                        {
+                            CTR.FindTrainNumber();
+                            Console.ReadKey();
+                            break;
+                        }
+                    case 11:
+                        {
+                            CTR.FindTime();
+                            Console.ReadKey();
+                            break;
+                        }
+                    default:
+                        break;
                 }
-            } while (Convert.ToInt32(choice) != 10);
+
+            } while (Convert.ToInt32(choice) != 0);
         }
 
         static void Menu()
@@ -85,12 +103,16 @@ namespace TestConsole
             Console.WriteLine(" 6 - очистить коллекцию ");
             Console.WriteLine(" 7 - отсортировать по номеру поезда коллекцию ");
             Console.WriteLine(" 8 - отсортировать по времени коллекцию ");
-            Console.WriteLine(" 10 - вывход");
+            Console.WriteLine(" 9 - поиск по пункту назначения ");
+            Console.WriteLine(" 10 - поиск по номеру поезда ");
+            Console.WriteLine(" 11 - поиск по времени ");
+            Console.WriteLine(" 0 - вывход");
 
         }
 
-        static bool CheckNumer(string str)     // проверка на ввод чисел
+        public static bool CheckNumer(string str)     // проверка на ввод чисел
         {
+            if (str.Length == 0) return false;
             for (int i = 0; i < str.Length; i++)
             {
                 if (str[i] >= '0' && str[i] <= '9')
@@ -105,18 +127,14 @@ namespace TestConsole
             return true;
         }
 
-        static TRAIN OneMethod()
+        public static string WriteDest()
         {
-            string buf; // буфер для ввода
-            string Dest; // пункта назначения
-            int TrNumber;       // номер поезда
-            string StTm;   // время отправления
-            bool flag;
-
             Console.WriteLine("Пункта назначения: ");
-            Dest = Console.ReadLine();
+            return Console.ReadLine();
+        }
 
-            //----------------------------------------------------------------------------
+        public static int WriteTrainNumber()
+        {
 
             do
             {
@@ -132,11 +150,12 @@ namespace TestConsole
                     continue;
                 }
             } while (flag);
-            TrNumber = Convert.ToInt32(buf);
+            return Convert.ToInt32(buf);
+        }
 
-            //----------------------------------------------------------------------------
-
-            string[] Stime={"","" };
+        public static string WriteTime()
+        {
+            string[] Stime = { "", "" };
             do
             {
                 flag = false;
@@ -167,7 +186,7 @@ namespace TestConsole
                         continue;
                     }
                 }
-                if(Stime[0].Length==1) // если без нуля был ввод
+                if (Stime[0].Length == 1) // если без нуля был ввод
                 {
                     Stime[0] = "0" + Stime[0];
                 }
@@ -193,13 +212,7 @@ namespace TestConsole
                     Stime[1] = "0" + Stime[1];
                 }
             } while (flag);
-            //StTm = buf;
-            StTm = Stime[0]+ ":"+Stime[1];
-
-            //----------------------------------------------------------------------------
-
-            return new TRAIN(Dest, TrNumber, StTm);
-
+            return Stime[0] + ":" + Stime[1];
         }
     }
 }
