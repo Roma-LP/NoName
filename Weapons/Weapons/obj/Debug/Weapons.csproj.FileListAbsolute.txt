@@ -1,0 +1,7 @@
+D:\TaskC#\Weapons\Weapons\bin\Debug\Weapons.exe.config
+D:\TaskC#\Weapons\Weapons\bin\Debug\Weapons.exe
+D:\TaskC#\Weapons\Weapons\bin\Debug\Weapons.pdb
+D:\TaskC#\Weapons\Weapons\obj\Debug\Weapons.csprojAssemblyReference.cache
+D:\TaskC#\Weapons\Weapons\obj\Debug\Weapons.csproj.CoreCompileInputs.cache
+D:\TaskC#\Weapons\Weapons\obj\Debug\Weapons.exe
+D:\TaskC#\Weapons\Weapons\obj\Debug\Weapons.pdb
